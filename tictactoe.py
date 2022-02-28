@@ -62,6 +62,8 @@ def winCheck(columnsList):
         return 'win'
     elif columnsList[6] == columnsList[7] == columnsList[8] != " ":
         return 'win'
+    elif columnsList[2] == columnsList[4] == columnsList[6] != " ":
+        return 'win'
     for i in range(len(columnsList) - 6):
         if columnsList[i] == columnsList[i + 3] == columnsList[i + 6] != " ":
             return 'win'
