@@ -82,8 +82,7 @@ def main():
         tie = isFull(columnsList)
         print(f'|{columnsList[0]}|{columnsList[1]}|{columnsList[2]}| < - Row')
         print(f'|{columnsList[3]}|{columnsList[4]}|{columnsList[5]}|')
-        print(f'|{columnsList[6]}|{columnsList[7]}|{columnsList[8]}|')
-        print('^ - Column')
+        print(f'|{columnsList[6]}|{columnsList[7]}|{columnsList[8]}|\n^ - Column')
         wincheck = winCheck(columnsList)
         if wincheck == 'win':
             print(f'\n{rotate} wins!')
