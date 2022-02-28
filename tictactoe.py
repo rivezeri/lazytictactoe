@@ -47,6 +47,8 @@ def modify(modifyRow, rotate, columnsList):
                     return 'O'
                 elif rotate == 'O':
                     return 'X'
+        else:
+            print('Between 1-3.')
     except:
         print('Please try again.')
         return rotate
