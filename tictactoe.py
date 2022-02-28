@@ -1,8 +1,5 @@
 import time
 
-class tictacToeError(Exception):
-    pass
-
 def playerAsk():
     '''Asks before main() for tic-tac-toe'''
     while True:
@@ -18,30 +15,41 @@ def playerAsk():
 
 def adder(rotate):
     '''adds the values to index and find which value to replace.'''
-    modifyRow = int(input(f'It\'s now {rotate}\'s turn. Please select a row to modify.\n(rows 1-3) /-> '))
-    if modifyRow == 1:
-        modifyRow -= 1
-    elif modifyRow == 2:
-        modifyRow += 1
-    elif modifyRow == 3:
-        modifyRow += 3
-    return modifyRow
+    try:
+        modifyRow = int(input(f'It\'s now {rotate}\'s turn. Please select a row to modify.\n(rows 1-3) /-> '))
+        if modifyRow == 1:
+            modifyRow -= 1
+        elif modifyRow == 2:
+            modifyRow += 1
+        elif modifyRow == 3:
+            modifyRow += 3
+        elif modifyRow == '':
+            print('Please make an entry.')
+        else:
+            print('Please try again.')
+        return modifyRow
+    except:
+        print('Please try again.')
+        return rotate
 
 def modify(modifyRow, rotate, columnsList):
-    modifyColumn = int(input('Select a column to modify:\n(columns 1-3) /-> '))
-    if modifyColumn == 1 or 2 or 3:
-        toReplace = modifyColumn + modifyRow - 1
-        if columnsList[toReplace] != ' ':
-            print('Please select a space that is not filled.')
-            return rotate
-        else:
-            columnsList[toReplace] = rotate
-            if rotate == 'X':
-                return 'O'
-            elif rotate == 'O':
-                return 'X'
-    else:
-        print('Please input a proper value.')
+    try:
+        modifyColumn = int(input('Select a column to modify:\n(columns 1-3) /-> '))
+        if modifyColumn == 1 or 2 or 3:
+            toReplace = modifyColumn + modifyRow - 1
+            if columnsList[toReplace] != ' ':
+                print('Please select a space that is not filled.')
+                return rotate
+            else:
+                columnsList[toReplace] = rotate
+                if rotate == 'X':
+                    return 'O'
+                elif rotate == 'O':
+                    return 'X'
+    except:
+        print('Please try again.')
+        return rotate
+
 
 def winCheck(columnsList):
     '''checks win condition'''
