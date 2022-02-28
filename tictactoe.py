@@ -53,7 +53,7 @@ def modify(modifyRow, rotate, columnsList):
 
 def winCheck(columnsList):
     '''checks win condition'''
-    for i in range(len(columnsList), -3):
+    for i in range(len(columnsList), - 3):
         if columnsList[i + 1] == columnsList[i + 2] == columnsList[i + 3] != " ":
             return 'win'
     for i in range(len(columnsList) - 6):
