@@ -33,6 +33,7 @@ def adder(rotate):
         return rotate
 
 def modify(modifyRow, rotate, columnsList):
+    '''modifying body'''
     try:
         modifyColumn = int(input('Select a column to modify:\n(columns 1-3) /-> '))
         if modifyColumn == 1 or 2 or 3:
@@ -64,6 +65,7 @@ def winCheck(columnsList):
             return 'win'
 
 def isFull(board): # partial cite from stackoverflow. i know what i'm doing
+    '''checks if tie'''
     count = 0
     for i in range(0,9):
         if board[i] == "X" or board[i] == "O":
