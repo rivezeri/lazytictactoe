@@ -56,9 +56,12 @@ def modify(modifyRow, rotate, columnsList):
 
 def winCheck(columnsList):
     '''checks win condition'''
-    for i in range(len(columnsList), - 3):
-        if columnsList[i + 1] == columnsList[i + 2] == columnsList[i + 3] != " ":
-            return 'win'
+    if columnsList[0] == columnsList[1] == columnsList[2] != " ":
+        return 'win'
+    elif columnsList[3] == columnsList[4] == columnsList[5] != " ":
+        return 'win'
+    elif columnsList[6] == columnsList[7] == columnsList[8] != " ":
+        return 'win'
     for i in range(len(columnsList) - 6):
         if columnsList[i] == columnsList[i + 3] == columnsList[i + 6] != " ":
             return 'win'
@@ -89,6 +92,10 @@ def main():
         print(f'|{columnsList[6]}|{columnsList[7]}|{columnsList[8]}|\n^ - Column')
         wincheck = winCheck(columnsList)
         if wincheck == 'win':
+            if rotate == 'X':
+                rotate = 'O'
+            else:
+                rotate = 'X'
             print(f'\n{rotate} wins!')
             time.sleep(2)
             print('...')
