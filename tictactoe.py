@@ -64,12 +64,14 @@ def winCheck(columnsList):
         return 'win'
     elif columnsList[2] == columnsList[4] == columnsList[6] != " ":
         return 'win'
-    for i in range(len(columnsList) - 6):
-        if columnsList[i] == columnsList[i + 3] == columnsList[i + 6] != " ":
-            return 'win'
-    for i in range(len(columnsList) - 8):
-        if columnsList[i] == columnsList[i + 4] == columnsList[i + 8] != " ":
-            return 'win'
+    elif columnsList[0] == columnsList[4] == columnsList[8] != " ":
+        return 'win'
+    elif columnsList[0] == columnsList[3] == columnsList[6] != " ":
+        return 'win'
+    elif columnsList[1] == columnsList[4] == columnsList[7] != " ":
+        return 'win'
+    elif columnsList[2] == columnsList[5] == columnsList[8] != " ":
+        return 'win'
 
 def isFull(board): # partial cite from stackoverflow. i know what i'm doing
     '''checks if tie'''
