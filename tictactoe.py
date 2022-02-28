@@ -55,8 +55,6 @@ def winCheck(columnsList):
     '''checks win condition'''
     for i in range(len(columnsList), -3):
         if columnsList[i + 1] == columnsList[i + 2] == columnsList[i + 3] != " ":
-            print('here cunt3')
-            print(i + 1, i + 2, i + 3)
             return 'win'
     for i in range(len(columnsList) - 6):
         if columnsList[i] == columnsList[i + 3] == columnsList[i + 6] != " ":
@@ -75,35 +73,34 @@ def isFull(board): # partial cite from stackoverflow. i know what i'm doing
     return False
 
 def main():
+    columnsList = [' ', ' ', ' ',
+                   ' ', ' ', ' ',
+                   ' ', ' ', ' ']
+    print('Welcome to tic-tac-toe.')
+    rotate = playerAsk()
     while True:
-        columnsList = [' ', ' ', ' ',
-                       ' ', ' ', ' ',
-                       ' ', ' ', ' ']
-        print('Welcome to tic-tac-toe.')
-        rotate = playerAsk()
-        while True:
-            tie = isFull(columnsList)
-            print(f'|{columnsList[0]}|{columnsList[1]}|{columnsList[2]}| < - Row')
-            print(f'|{columnsList[3]}|{columnsList[4]}|{columnsList[5]}|')
-            print(f'|{columnsList[6]}|{columnsList[7]}|{columnsList[8]}|')
-            print('^ - Column')
-            wincheck = winCheck(columnsList)
-            if wincheck == 'win':
-                print('You win!')
-                time.sleep(2)
-                print('...')
-                break
-            elif tie == True:
-                print('Tie.')
-                time.sleep(2)
-                print('...')
-                break
-            elif rotate == 'X' or 'O':
-                modifyRow = adder(rotate)
-                if rotate == 'X':
-                    rotate = modify(modifyRow, rotate, columnsList)
-                elif rotate == 'O':
-                    rotate = modify(modifyRow, rotate, columnsList)
+        tie = isFull(columnsList)
+        print(f'|{columnsList[0]}|{columnsList[1]}|{columnsList[2]}| < - Row')
+        print(f'|{columnsList[3]}|{columnsList[4]}|{columnsList[5]}|')
+        print(f'|{columnsList[6]}|{columnsList[7]}|{columnsList[8]}|')
+        print('^ - Column')
+        wincheck = winCheck(columnsList)
+        if wincheck == 'win':
+            print(f'\n{rotate} wins!')
+            time.sleep(2)
+            print('...')
+            break
+        elif tie == True:
+            print('Tie.')
+            time.sleep(2)
+            print('...')
+            break
+        elif rotate == 'X' or 'O':
+            modifyRow = adder(rotate)
+            if rotate == 'X':
+                rotate = modify(modifyRow, rotate, columnsList)
+            elif rotate == 'O':
+                rotate = modify(modifyRow, rotate, columnsList)
 
 if __name__ == '__main__':
     main()
