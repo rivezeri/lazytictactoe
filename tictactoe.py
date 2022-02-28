@@ -94,7 +94,7 @@ def main():
             time.sleep(2)
             print('...')
             break
-        elif rotate == 'X' or 'O':
+        else:
             modifyRow = adder(rotate)
             if rotate == 'X':
                 rotate = modify(modifyRow, rotate, columnsList)
